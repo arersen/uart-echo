@@ -1,0 +1,25 @@
+#!/bin/sh
+# BusyBox init script: /etc/init.d/S99mycom
+DEV=/dev/ttyAMA0
+BIN=/root/mycom
+LOGDIR=/root/logs
+PIDFILE=/var/run/mycom.pid
+
+case "$1" in
+start)
+    mkdir -p "$LOGDIR"
+    cd "$LOGDIR" || exit 1
+    start-stop-daemon -S -b -m -p "$PIDFILE" -x "$BIN" -- "$DEV"
+    ;;
+stop)
+    start-stop-daemon -K -p "$PIDFILE"
+    ;;
+restart)
+    "$0" stop
+    "$0" start
+    ;;
+*)
+    echo "Usage: $0 {start|stop|restart}"
+    exit 1
+    ;;
+esac
