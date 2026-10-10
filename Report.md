@@ -9,9 +9,7 @@
 - inittab: прибрано getty на ttyAMA0
 
 Loopback (TX GPIO14 / pin 8 <-> RX GPIO15 / pin 10):
-```
-(вивід термінала, права доступу ls -l /dev/ttyAMA0)
-```
+
 
 ## 2. Застосунок
 - `mycom.c`, `Makefile` (all, clean, deploy, CROSS_COMPILE)
