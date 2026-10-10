@@ -1,7 +1,7 @@
 # TASK 05. UART ECHO
 
 ## 1. Налаштування UART на TARGET
-(плата: ___, система: Buildroot, UART: /dev/ttyAMA0)
+(плата: Rasberry Pi 5, система: Buildroot, UART: /dev/ttyAMA0)
 
 Зміни на boot-розділі (FAT, mmcblk0p1):
 - config.txt: `enable_uart=1` (+ `dtoverlay=disable-bt`, якщо Pi 3/4/Zero W)
