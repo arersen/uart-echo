@@ -126,6 +126,19 @@ Started on /dev/ttyAMA0 at 115200 8N1
 ## 4. Автозапуск
 
 Скрипт `init/S99mycom` для BusyBox init (`start`/`stop`/`restart`, запуск через `start-stop-daemon`).
+```
+# /etc/init.d/S99mycom start
+# sync
+# reboot
+# client_loop: send disconnect: Connection reset
+
+C:\Users\L>ssh root@192.168.0.183
+root@192.168.0.183's password:
+# ps | grep mycom
+  218 root     grep mycom
+#
+```
+
 
 
 
