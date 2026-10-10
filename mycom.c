@@ -141,6 +141,7 @@ static int run(int fd)
 {
     char line[LINE_MAX_LEN + 1];
     size_t len = 0;
+    int skip_lf = 0;
 
     while (!g_stop) {
         char c;
@@ -157,10 +158,13 @@ static int run(int fd)
         if (n == 0) {
             continue;
         }
-        if (c == '\n') {
-            if (len > 0 && line[len - 1] == '\r') {
-                len--;
-            }
+        if (c == '\n' && skip_lf) {
+            skip_lf = 0;
+            continue;
+        }
+        skip_lf = 0;
+        if (c == '\r' || c == '\n') {
+            skip_lf = (c == '\r');
             line[len] = '\0';
             handle_line(fd, line);
             len = 0;
