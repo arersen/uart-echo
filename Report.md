@@ -104,7 +104,7 @@ Started on /dev/ttyAMA0 at 115200 8N1
 ```
 
 
-![обмін](docs/img/video.mp4)
+![обмін](docs/img/2026-10-10%2018-55-15.mp4)
 
 
 ```
