@@ -9,7 +9,7 @@ APP := mycom
 
 TARGET_HOST ?= root@192.168.0.183
 TARGET_DIR ?= /root
-SCP_FLAGS ?=
+SCP_FLAGS ?= -O
 
 .PHONY: all clean deploy format
 
