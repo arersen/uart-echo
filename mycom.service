@@ -1,0 +1,19 @@
+[Unit]
+Description=UART ECHO service (mycom)
+After=sysinit.target dev-ttyAMA0.device
+Wants=dev-ttyAMA0.device
+StartLimitIntervalSec=60
+StartLimitBurst=5
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/mycom /dev/ttyAMA0
+LogsDirectory=mycom
+WorkingDirectory=/var/log/mycom
+Restart=on-failure
+RestartSec=2
+KillSignal=SIGTERM
+TimeoutStopSec=5
+
+[Install]
+WantedBy=multi-user.target
