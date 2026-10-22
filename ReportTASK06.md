@@ -57,7 +57,7 @@ install: $(APP) $(UNIT)
 **Вивід з терміналу (Статус сервісу після make install та перезавантаження):**
 
 Швидка перевірка програми без systemd
-```
+```bash
 awlik@jambyl:~/uart-echo $ make
 gcc -Wall -Wextra -O2 -o mycom mycom.c
 awlik@jambyl:~/uart-echo $ ./mycom /dev/ttyAMA0
@@ -66,7 +66,7 @@ Started on /dev/ttyAMA0 at 115200 8N1
 ```
 
 Встановлення сервісу
-```
+```bash
 awlik@jambyl:~/uart-echo $ make install-local
 sudo systemctl stop mycom.service
 sudo install -D -m 755 mycom /usr/local/bin/mycom
@@ -76,7 +76,7 @@ sudo systemctl enable mycom.service
 ```
 
 Запуск і перевірка echo
-```
+```bash
 awlik@jambyl:~/uart-echo $ sudo systemctl start mycom
 awlik@jambyl:~/uart-echo $ systemctl is-enabled mycom
 enabled
@@ -102,7 +102,7 @@ awlik@jambyl:~/uart-echo $
 ```
 
 Перезапуск при падінні
-```
+```bash
 awlik@jambyl:~/uart-echo $ sudo systemctl start mycom
 awlik@jambyl:~/uart-echo $ sudo pkill -9 mycom
 awlik@jambyl:~/uart-echo $ systemctl status mycom
@@ -124,7 +124,7 @@ awlik@jambyl:~/uart-echo $ systemctl show mycom -p NRestarts
 NRestarts=1
 awlik@jambyl:~/uart-echo $
 ```
-```
+```bash
 awlik@jambyl:~/uart-echo $ sudo systemctl restart mycom
 awlik@jambyl:~/uart-echo $ systemctl status mycom
 ● mycom.service - UART ECHO service (mycom)
@@ -142,7 +142,7 @@ awlik@jambyl:~/uart-echo $
 ```
 
 Автозапуск після перезавантаження
-```
+```bash
 awlik@jambyl:~/uart-echo $ sudo reboot
 *rebooting*
 
