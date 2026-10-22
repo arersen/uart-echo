@@ -3,7 +3,7 @@
 **1. Розробка systemd unit-файлу (.service)**
 
 1.а) Сервіс налаштовано на запуск програми з правильним UART-інтерфейсом.
-```
+```sh
 awlik@jambyl:~/uart-echo $ cat mycom.service
 [Unit]
 Description=UART ECHO service (mycom)
